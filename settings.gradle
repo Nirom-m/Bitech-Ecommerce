@@ -1,0 +1,5 @@
+rootProject.name = 'bitech-ecommerce'
+include 'model'
+include 'controller'
+include 'view'
+
