@@ -1,6 +1,6 @@
 package org.bitech.ecommerce.config;
 
-import org.bitech.ecommerce.exception.ProductNotFoundException;
+import org.bitech.ecommerce.exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import static org.bitech.ecommerce.config.Constants.PRODUCT_NOT_FOUND_EXCEPTION_MESSAGE;
-import static org.bitech.ecommerce.config.Constants.RESPONSE_ERROR_MESSAGE_KEY;
+
+import static org.bitech.ecommerce.config.Constants.*;
 
 @ControllerAdvice
 public class ControllerAdvisor {
@@ -36,5 +36,27 @@ public class ControllerAdvisor {
     public ResponseEntity<Map<String, String>> handleAuthenticationException(ProductNotFoundException productNotFoundException) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, PRODUCT_NOT_FOUND_EXCEPTION_MESSAGE));
+    }
+
+    @ExceptionHandler(ProductsNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleAuthenticationException(ProductsNotFoundException productsNotFoundException) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, PRODUCTS_NOT_FOUND_EXCEPTION_MESSAGE));
+    }
+    @ExceptionHandler(ClientNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleAuthenticationException(ClientNotFoundException clientNotFoundException) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CLIENT_NOT_FOUND_EXCEPTION_MESSAGE));
+    }
+
+    @ExceptionHandler(NegativeAmountProductException.class)
+    public ResponseEntity<Map<String, String>> handleAuthenticationException(NegativeAmountProductException negativeAmountProductException) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, NEGATIVE_AMOUNT_PRODUCT_EXCEPTION_MESSAGE));
+    }
+    @ExceptionHandler(ClientNotHaveShoppingCartException.class)
+    public ResponseEntity<Map<String, String>> handleAuthenticationException(ClientNotHaveShoppingCartException clientNotHaveShoppingCartException) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, CLIENT_NOT_HAVE_SHOPPING_CART_EXCEPTION_MESSAGE));
     }
 }

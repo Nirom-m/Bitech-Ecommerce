@@ -21,6 +21,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'com.mysql:mysql-connector-j:8.0.32'
     implementation 'org.springframework:spring-context:6.0.9'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.4'
 
 }
 

@@ -1,5 +1,6 @@
 package org.bitech.ecommerce.useCase;
 
+import lombok.RequiredArgsConstructor;
 import org.bitech.ecommerce.dto.ProductDto;
 import org.bitech.ecommerce.model.Product;
 import org.bitech.ecommerce.repository.AdminRepository;
@@ -10,16 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class AdminUseCase {
 
     private final AdminRepository adminRepository;
-
     private final ProductRepository productRepository;
-
-    public AdminUseCase(AdminRepository adminRepository, ProductRepository productRepository) {
-        this.adminRepository = adminRepository;
-        this.productRepository = productRepository;
-    }
 
     public void createProduct(ProductDto productDto){
 
