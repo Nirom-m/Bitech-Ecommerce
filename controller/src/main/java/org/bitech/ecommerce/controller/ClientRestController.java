@@ -28,9 +28,9 @@ public class ClientRestController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Map<String, String>> addToCart(@RequestBody @Valid ProductDto productDto,
-                                                         @RequestParam("cant") int cant, @RequestParam("idClient") int idClient,
-                                                         @RequestParam(value="idCart", required = false) Integer idCart){
+    public ResponseEntity<Map<String, String>> addToCart(@RequestParam("cant") int cant, @RequestParam("idClient") int idClient,
+                                                         @RequestParam(value="idCart", required = false) Integer idCart,
+                                                         @RequestBody @Valid ProductDto productDto){
         clientUseCase.addToCart(productDto, cant, idClient, idCart);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(Collections.singletonMap(Constants.RESPONSE_MESSAGE_KEY, Constants.PRODUCT_ADD_TO_CART_MESSAGE));

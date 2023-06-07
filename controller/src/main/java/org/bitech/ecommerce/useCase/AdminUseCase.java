@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminUseCase {
 
-    private final AdminRepository adminRepository;
+    //private final AdminRepository adminRepository;
     private final ProductRepository productRepository;
 
     public void createProduct(ProductDto productDto){
