@@ -1,8 +1,10 @@
-package org.bitech.ecommerce.model.dto;
+package org.bitech.ecommerce.dto;
 
-import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @Getter
@@ -11,7 +13,8 @@ public class ProductDto {
     private int id;
     @NotBlank(message = "The product name was not entered")
     private String name;
-    //private String reference;
+    @NotBlank(message = "The product reference was not entered")
+    private String reference;
     @NotBlank(message = "The product category was not entered")
     private String category;
     @NotNull(message = "The product cant was not entered")

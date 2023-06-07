@@ -1,4 +1,4 @@
-package org.bitech.ecommerce.model.model;
+package org.bitech.ecommerce.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,7 +21,7 @@ public class Client {
     @Column(unique = true)
     private String userName;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "client")
     private List<ShoppingCart> shoppingCarts;
 
 }

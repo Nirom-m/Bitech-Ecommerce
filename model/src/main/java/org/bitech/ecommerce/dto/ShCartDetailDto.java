@@ -1,9 +1,9 @@
-package org.bitech.ecommerce.model.dto;
+package org.bitech.ecommerce.dto;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @Getter

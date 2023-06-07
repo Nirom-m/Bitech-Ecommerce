@@ -1,4 +1,4 @@
-package org.bitech.ecommerce.model.model;
+package org.bitech.ecommerce.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,7 +19,7 @@ public class Admin {
     private int id;
     private String userName;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "admin")
     private List<Product> products;
 
 }

@@ -1,4 +1,4 @@
-package org.bitech.ecommerce.model;
+package org.bitech.ecommerce;
 
 public class Main {
     public static void main(String[] args) {

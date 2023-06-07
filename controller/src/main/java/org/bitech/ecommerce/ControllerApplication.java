@@ -1,14 +1,12 @@
-package org.bitech.ecommerce.model;
+package org.bitech.ecommerce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ModelApplication {
-
+public class ControllerApplication {
     public static void main(String[] args) {
-        System.out.println("hi");
-        SpringApplication.run(ModelApplication.class, args);
-    }
 
+        SpringApplication.run(ControllerApplication.class, args);
+    }
 }

@@ -1,4 +1,4 @@
-package org.bitech.ecommerce.model.model;
+package org.bitech.ecommerce.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -19,10 +19,9 @@ public class Product {
     private String category;
     private int cant;
     private String photo;
-    @OneToMany
+    @OneToMany(mappedBy = "product")
     private List<ShCartDetail> cartDetails;
     @ManyToOne
-    @JoinColumn(name = "id_admin")
     private Admin admin;
 
     public Product(int id, String name, String reference, String category, int cant, String photo) {

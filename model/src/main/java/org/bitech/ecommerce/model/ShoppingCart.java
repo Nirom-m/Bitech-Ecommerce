@@ -1,4 +1,4 @@
-package org.bitech.ecommerce.model.model;
+package org.bitech.ecommerce.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,22 +6,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class ShCartDetail {
-
+public class ShoppingCart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "id_shoppingCart")
-    public ShoppingCart shoppingCart;
-    @ManyToOne
-    @JoinColumn(name = "id_product")
-    public Product product;
-    public int cant;
+    private Client client;
+    @OneToMany(mappedBy = "shoppingCart")
+    private List<ShCartDetail> details;
+
 
 }

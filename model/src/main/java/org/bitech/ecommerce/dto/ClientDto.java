@@ -1,9 +1,10 @@
-package org.bitech.ecommerce.model.dto;
+package org.bitech.ecommerce.dto;
 
-import jakarta.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 
 @AllArgsConstructor
