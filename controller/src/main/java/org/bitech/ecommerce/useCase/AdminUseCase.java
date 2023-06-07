@@ -4,7 +4,7 @@ import org.bitech.ecommerce.dto.ProductDto;
 import org.bitech.ecommerce.model.Product;
 import org.bitech.ecommerce.repository.AdminRepository;
 import org.bitech.ecommerce.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.bitech.ecommerce.service.AdminService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,11 +36,32 @@ public class AdminUseCase {
     }
     public void modifyProduct(ProductDto productDto){
 
+
+        Product product= productRepository.findProductById(productDto.getId());
+
+        AdminService.verifyProductFound(product);
+
+        product.setName(productDto.getName());
+        product.setReference(productDto.getReference());
+        product.setCategory(productDto.getCategory());
+        product.setCant(productDto.getCant());
+        product.setPhoto(productDto.getPhoto());
+
+        productRepository.save(product);
+
     }
     public void deleteProduct(ProductDto productDto){
 
+        Product product= productRepository.findProductById(productDto.getId());
+
+        AdminService.verifyProductFound(product);
+
+        productRepository.delete(product);
+
     }
     public List<Product> getProducts(){
-        return null;
+        List<Product> products= productRepository.findAll();
+        AdminService.verifyProductsFound(products);
+        return products;
     }
 }
